@@ -1,0 +1,19 @@
+{
+  "file": "./models/users.json",
+  "users": [
+    {
+      "firstName": "Sharon",
+      "lastName": "Tsai",
+      "email": "sharonmctsai@gmail.com",
+      "password": "secret",
+      "_id": "9a3efeb2-e29b-42a3-9351-85091a7365f2"
+    },
+    {
+      "firstName": "Huiyun",
+      "lastName": "Tsai",
+      "email": "20104330@mail.wit.ie",
+      "password": "secret",
+      "_id": "af80cac8-9a4b-459c-b7d0-098dcda5f8ac"
+    }
+  ]
+}

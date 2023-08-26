@@ -1,0 +1,34 @@
+{{> welcome-menu active="signup"}}
+
+<section class="section">
+  <h1 class="title">Sign up</h1>
+  <form action="/register" method="POST">
+        <img src="https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/register.png?v=1691998578497"
+         alt="Register"
+         width="400"
+         height="400"
+     >
+    <label class="label">Name</label>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <input class="input" type="text" placeholder="Enter first name" name="firstName">
+        </div>
+        <div class="field">
+          <input class="input" type="text" placeholder="Enter last name" name="lastName">
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Email</label> <input class="input" type="text" placeholder="Enter email" name="email">
+    </div>
+    <div class="field">
+      <label class="label">Password</label> <input class="input" type="password" placeholder="Enter Password" name="password">
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-link">Submit</button>
+      
+      
+    </div>
+  </form>
+</section>
