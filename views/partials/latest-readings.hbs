@@ -1,0 +1,107 @@
+<section class="section">
+  <div class="title">
+    {{station.title}}
+   </div>
+  
+  <div style="display:flex;">
+
+    <span class="bulma-ltr-rtl-mixin "></span>
+<div class="column is-one-fifth has-background-grey-light">
+
+  <div class="card has-background-link-light">
+    <div class="card-content">
+      <b>{{station.title}}  </b>     
+      
+     <img src=" https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/station.png?v=1691998580757">
+        <p>Latitude:{{station.latitude}}</p>
+        <p>Longitude:{{station.longitude}}</p>
+
+    </div>
+  </div>
+</div>
+
+    <div class="column is-one-fifth has-background-grey-light">
+    <div class="card has-background-warning">
+        <div class="card-content ">
+            
+    <h2><b>Weather</b> </h2>
+          <p>
+          <img src="{{weatherIcon}}" alt="Weather Icon">
+            
+
+            {{weatherCode}}
+          </p>
+          
+    </div>
+  </div>
+    </div>
+  
+  <div class="column is-one-fifth has-background-grey-light">
+    <div class="card has-background-success">
+        <div class="card-content ">
+            
+    <h2><b>Temp</b> </h2>
+          
+          
+         {{#if tempTrendIsUp}}
+          <img src="https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/high-temperature.png?v=1693043927807" alt="high-temperature">
+        {{else}}
+          <img src="https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/low-temperature.png?v=1691998574662" alt="low-temperature">
+        {{/if}}
+
+
+            <p>{{latestReading.temperature}}°C</p>
+
+          <p>{{convertedTemperature}}°F</p>
+          
+       <p>Max : {{maxTemperature}}</p>
+       <p>Min : {{minTemperature}}</p>
+
+    </div>
+  </div>
+    </div>
+  
+  <div class="column is-one-fifth has-background-grey-light">
+    <div class="card has-background-warning">
+        <div class="card-content ">
+            
+          <h2><b>Wind</b> </h2>
+          
+{{#if windSpeedTrendIsUp}}
+  <img src="https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/up-arrow.png?v=1691998584494" alt="Up Arrow">
+{{else}}
+  <img src="https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/down-arrow.png?v=1691998572371" alt="Down Arrow">
+{{/if}}
+
+          <p>Feels like{{windChill}}°C</p>
+          <p>{{beaufortScale}}bft</p>
+          <p>{{windDirection}}</p>
+
+                <p>Max : {{maxWindSpeed}} </p>
+                <p>Min : {{minWindSpeed}} </p>
+    </div>
+  </div>
+    </div>
+
+
+  <div class="column is-one-fifth has-background-grey-light">
+    <div class="card has-background-success">
+        <div class="card-content ">
+            
+    <h2><b>Pressure</b> </h2>
+{{#if pressureTrendIsUp}}
+  <img src="https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/up.png?v=1691998585292" alt="Up Arrow">
+{{else}}
+  <img src="https://cdn.glitch.global/919a84ab-9d58-4b9a-ba1c-ea5cc14cfb94/down.png?v=1691998573123" alt="Down Arrow">
+{{/if}}
+
+          
+    <p>{{latestReading.pressure}}hpa</p>
+      <p>Max : {{maxPressure}} </p>
+      <p>Min : {{minPressure}} </p>
+    </div>
+  </div>
+    </div>
+  </div>
+</section>
+  

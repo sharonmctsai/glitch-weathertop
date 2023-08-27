@@ -1,0 +1,29 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "title": "Tramore",
+      "latitude": "11",
+      "longitude": "22",
+      "_id": "e9eee368-1f36-4f61-a124-65c0109497ef"
+    },
+    {
+      "title": "Dunmore",
+      "latitude": "33",
+      "longitude": "44",
+      "_id": "a125a0a9-958f-4f02-a6bf-4cb0e2af218f"
+    },
+    {
+      "title": "Waterford",
+      "latitude": "55",
+      "longitude": "66",
+      "_id": "a48b55c3-a9cf-4626-851c-82e8c48466d6"
+    },
+    {
+      "title": "Dublin",
+      "latitude": "77",
+      "longitude": "88",
+      "_id": "54c85be7-ad03-467c-a321-7438334ce910"
+    }
+  ]
+}
