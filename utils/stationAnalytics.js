@@ -10,6 +10,7 @@ export const stationAnalytics = {
     }
   },
 
+ 
 
  getMaxTemperature(readings) {
     const temperatures = readings.map((reading) => reading.temperature);
@@ -43,9 +44,8 @@ export const stationAnalytics = {
   
   tempTrend(readings) {
     let trend = 0;
-    if (readings.length > 2) {
+    if (readings.length > 1) {
       const values = [
-        readings[readings.length - 3].temperature,
         readings[readings.length - 2].temperature,
         readings[readings.length - 1].temperature
       ];
@@ -56,9 +56,8 @@ export const stationAnalytics = {
   
   windSpeedTrend(readings) {
     let trend = 0;
-    if (readings.length > 2) {
+    if (readings.length > 1) {
       const values = [
-        readings[readings.length - 3].windSpeed,
         readings[readings.length - 2].windSpeed,
         readings[readings.length - 1].windSpeed
       ];
@@ -69,9 +68,8 @@ export const stationAnalytics = {
 
   pressureTrend(readings) {
     let trend = 0;
-    if (readings.length > 2) {
+    if (readings.length > 1) {
       const values = [
-        readings[readings.length - 3].pressure,
         readings[readings.length - 2].pressure,
         readings[readings.length - 1].pressure
       ];
@@ -83,13 +81,30 @@ export const stationAnalytics = {
 
   calcTrend(values) {
     let trend = 0;
-    if (values.length > 2) {
-      if ((values[2] > values[1]) && (values[1] > values[0])) {
+    if (values.length > 1) {
+      if (values[1] > values[0]) {
         trend = 1;
-      } else if ((values[2] < values[1]) && (values[1] < values[0])) {
+      } else if (values[1] < values[0]) {
         trend = -1;
       }
     }
     return trend;
+  },
+  
+  getFormattedDate(dateString) {
+    if (dateString == null) {
+      return "";
+    }
+    const dateTime = new Date(dateString);
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      timeZoneName: "short"
+    };
+    return dateTime.toLocaleDateString(undefined, options);
   }
 };

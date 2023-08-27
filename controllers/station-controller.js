@@ -1,6 +1,6 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
-import { stationAnalytics } from "../utils/stationAnalytics.js"; // Import the stationAnalytics utility
+import { stationAnalytics } from "../utils/stationAnalytics.js";
 import { Conversion} from '../utils/Conversion.js';
 
 
@@ -12,8 +12,6 @@ export const stationController = {
     const windSpeedTrendIsUp = stationAnalytics.windSpeedTrend(station.readings) === 1;
     const pressureTrendIsUp = stationAnalytics.pressureTrend(station.readings) === 1;
 
-
-
     const weatherCode = Conversion.currentWeather(latestReading.code);
     const weatherIcon = Conversion.weatherIcon(latestReading.code);
     const convertedTemperature = Conversion.tempF(latestReading.temperature);
@@ -21,10 +19,8 @@ export const stationController = {
     const beaufortScale = Conversion.beaufort(latestReading.windSpeed);
     const windDirection = Conversion.degreesToCompass(latestReading.windDirection);
 
-    // Calculate trends
 
-    
-    
+      
    // Function to Calculate max and min values using the Analytics utility
     const maxTemperature = stationAnalytics.getMaxTemperature(station.readings, 'temperature');
     const minTemperature = stationAnalytics.getMinTemperature(station.readings, 'temperature');
@@ -33,9 +29,11 @@ export const stationController = {
     const maxPressure = stationAnalytics.getMaxPressure(station.readings, 'pressure');
     const minPressure = stationAnalytics.getMinPressure(station.readings, 'pressure');
     
+    console.log(station.readings);
+    
     
     /* Check the logs
-    console.log("maxTemperature:", maxTemperature);
+  console.log("maxTemperature:", maxTemperature);
   console.log("minTemperature:", minTemperature);
   console.log("maxWindSpeed:", maxWindSpeed);
   console.log("minWindSpeed:", minWindSpeed);
@@ -69,7 +67,9 @@ export const stationController = {
       maxPressure: maxPressure,
       minPressure: minPressure,
   
-       tempTrendIsUp: tempTrendIsUp,  
+      
+      // Calculate trends
+      tempTrendIsUp: tempTrendIsUp,  
       windSpeedTrendIsUp: windSpeedTrendIsUp,
       pressureTrendIsUp: pressureTrendIsUp
     };
@@ -78,12 +78,17 @@ export const stationController = {
 
   async addReading(request, response) {
     const station = await stationStore.getStationById(request.params.id);
+
+    const currentDateTime = new Date(); // Get the current date and time
+    const formattedDateTime = currentDateTime.toISOString(); // Format in ISO format
+
     const newReading = {
+      date: formattedDateTime,
       code: request.body.code,
-      temperature: request.body.temperature,
-      windSpeed: request.body.windSpeed,
-      windDirection: request.body.windDirection,
-      pressure: request.body.pressure,
+      temperature: parseFloat(request.body.temperature),
+      windSpeed: parseFloat(request.body.windSpeed),
+      windDirection: parseFloat(request.body.windDirection),
+      pressure: parseInt(request.body.pressure),
     };
     console.log(`adding reading ${newReading.title}`);
     await readingStore.addReading(station._id, newReading);
