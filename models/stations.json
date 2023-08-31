@@ -24,6 +24,12 @@
       "latitude": "77",
       "longitude": "88",
       "_id": "54c85be7-ad03-467c-a321-7438334ce910"
+    },
+    {
+      "title": "Cork",
+      "latitude": "10",
+      "longitude": "10",
+      "_id": "416871ea-e405-468d-824b-187a9f1308a2"
     }
   ]
 }
